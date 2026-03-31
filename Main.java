@@ -7,27 +7,32 @@ public class Main {
         StudentService service = new StudentService();
 
         while (true) {
-            try {
-                System.out.println("\n===== MENU =====");
-                System.out.println("1. Add Student");
-                System.out.println("2. View All Students");
-                System.out.println("3. Search Student");
-                System.out.println("4. Delete Student");
-                System.out.println("5. Show Topper");
-                System.out.println("6. Exit");
+            System.out.println("\n1. Add Student");
+            System.out.println("2. Display All Students");
+            System.out.println("3. Display Topper");
+            System.out.println("4. Exit");
 
-                int choice = sc.nextInt();
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
 
-                if (choice == 1) {
-                    System.out.print("Enter RegNo Name Age Email Course ParentName ParentContact: ");
+            switch (choice) {
 
-                    int regNo = sc.nextInt();
-                    String name = sc.next();
-                    int age = sc.nextInt();
-                    String email = sc.next();
-                    String course = sc.next();
-                    String parentName = sc.next();
-                    String parentContact = sc.next();
+                case 1:
+                    System.out.print("Enter ID: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Enter Name: ");
+                    String name = sc.nextLine();
+
+                    System.out.print("Enter Email: ");
+                    String email = sc.nextLine();
+
+                    System.out.print("Enter Registration No: ");
+                    String regNo = sc.nextLine();
+
+                    System.out.print("Enter Parent Name: "); // 
+                    String parent = sc.nextLine();
 
                     int[] marks = new int[5];
                     System.out.println("Enter marks of 5 subjects:");
@@ -35,36 +40,29 @@ public class Main {
                         marks[i] = sc.nextInt();
                     }
 
-                    System.out.print("Enter Previous CGPA: ");
+                    System.out.print("Enter CGPA: ");
                     double cgpa = sc.nextDouble();
 
-                    Student s = new Student(regNo, name, age, email, course,
-                            parentName, parentContact, marks, cgpa);
-
+                    Student s = new Student(id, name, email, regNo, parent, marks, cgpa);
                     service.addStudent(s);
 
-                } else if (choice == 2) {
-                    service.viewAll();
-
-                } else if (choice == 3) {
-                    System.out.print("Enter RegNo: ");
-                    service.search(sc.nextInt());
-
-                } else if (choice == 4) {
-                    System.out.print("Enter RegNo: ");
-                    service.delete(sc.nextInt());
-
-                } else if (choice == 5) {
-                    service.showTopper();
-
-                } else if (choice == 6) {
-                    System.out.println("Exiting...");
+                    System.out.println("Student Added Successfully!");
                     break;
-                }
 
-            } catch (Exception e) {
-                System.out.println("Invalid Input! Try again.");
-                sc.nextLine();
+                case 2:
+                    service.displayAll();
+                    break;
+
+                case 3:
+                    service.displayTopper();
+                    break;
+
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice!");
             }
         }
     }
