@@ -93,7 +93,22 @@ Use the following input while running the program:
 
 ---
 
+##  Screenshots
 
+### Menu
+![Menu](images/menu.png)
+
+### Add Student
+![Add](images/add.png)
+
+### View Students
+![View](images/view.png)
+
+### Search Student
+![Search](images/search.png)
+
+### Topper
+![Topper](images/topper.png)
 
 ##  What I Learned
 - How to apply Java concepts in a real-world project  
