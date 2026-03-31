@@ -34,7 +34,7 @@ It allows users to store personal and academic details of students and perform o
 
 ---
 
-## ▶ How to Run (Using VS Code)
+##  How to Run (Using VS Code)
 
 Follow these steps to run the project in Visual Studio Code:
 
